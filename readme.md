@@ -48,22 +48,39 @@ The following are **APNG**s; if you're using Chrome (or Opera) you'll need [an e
 
 
 ![Store, Align, Combine](http://i.imgur.com/UQ71ZET.png)
+
 | This first uses storing selections to "jump" the gap, and immediately follows with a store+align+restore+join idiom to extend the cursor. The cursors are then joined and the process starts again.
 
+
+
 ![Selections](http://i.imgur.com/Hk3BLeA.png)
+
 This shows off the improved `add_next_line` handling, the `remove_blank_line_selections` command, the `add_next_character` command and the red shows off choosing where "ESC" lands us.
 
+
+
 ![Eval](http://i.imgur.com/yZduaRH.png)
+
 First you see how full non-trivial expressions can be evaluated and "print" can be used to output text. Then you see that evaluation can work with expressions as well, and on top of that the `$` symbol injects sequential numbers into the code.
 
+
+
 ![Repeat Macro](http://i.imgur.com/L64UVdG.png)
+
 A macro is run... 32 times.
 
+
+
 ![Boundaries](http://i.imgur.com/gRMnDmN.png)
+
 A border of 10 lines is forced above and below.
 
+
+
 ![Split Selection](http://i.imgur.com/PAEbilM.png)
+
 `run_multiple_commands` is used for the "blocky" selections and the rest is a combination of selection-altering commands.
+
 
 
 Some tips on getting set-up
