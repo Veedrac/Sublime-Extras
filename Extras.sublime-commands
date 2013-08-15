@@ -1,0 +1,27 @@
+// Commented out because I need motivation to add all of the commands,
+// rather than just four.
+
+[
+//	{
+//		"caption": "Repeat Macro",
+//		"command": "repeat_macro"
+//	},
+//	{
+//		"caption": "Split Selection into Characters",
+//		"command": "split_selection_into_chars"
+//	},
+//	{
+//		"caption": "Split Selection into Words",
+//		"command": "split_selection_into_words"
+//	},
+//	{
+//		"caption": "Substitute in Selection",
+//		"command": "evaluate_selection",
+//		"args": { "execute": false }
+//	},
+//	{
+//		"caption": "Evaluate Selections",
+//		"command": "evaluate_selection",
+//		"args": { "execute": true }
+//	},
+]
