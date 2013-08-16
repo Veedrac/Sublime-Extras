@@ -226,7 +226,7 @@ Now when you press <kbd>ESC</kbd> an "afterimage" will be left. Continuing to pr
 
 ### Useful bonuses using run_multiple_commands
 
-## A duplicate that selects the just-duplicated line if done on a line
+#### A duplicate that selects the just-duplicated line if done on a line
 
 ```jquery
 { "keys": [KEYBINDING], "command": "duplicate_line" },
