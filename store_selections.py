@@ -189,7 +189,7 @@ class ActivateSelectionsCommand(sublime_plugin.TextCommand):
 	"""
 	Pop selections from storage.
 
-	Can take a "clear" argument if you want to change whether to clear the
+	Can take a "clear" argument for if you want to change whether to clear the
 	storage, defaults to True.
 	"""
 	def run(self, edit, clear=True, **settings):
@@ -214,7 +214,7 @@ class ActivateSelectedSelectionsCommand(sublime_plugin.TextCommand):
 	If there are no contained selections and you have up to one cursor of
 	size 0 this will fall back to activate_selections.
 
-	Can take a "clear" argument if you want to change whether to clear the
+	Can take a "clear" argument for if you want to change whether to clear the
 	storage, defaults to True.
 	"""
 	def run(self, edit, **settings):
