@@ -104,7 +104,7 @@ Sublime Extras comes with no shortcuts by default. Additionally the `.sublime-co
 
 ### Repeat macro
 
-```jquery
+```javascript
 { "keys": [KEYBINDING], "command": "repeat_macro" },
 ```
 
@@ -115,7 +115,7 @@ Thanks to Sivakumar Kailasam for the basis of this code. In fact there seems to 
 
 ### Better add_next_line
 
-```jquery
+```javascript
 { "keys": [KEYBINDING], "command": "add_next_line", "args": {"forward": false} },
 { "keys": [KEYBINDING], "command": "add_next_line", "args": {"forward": true} },
 ```
@@ -125,25 +125,37 @@ These would replace the default <kbd>Alt+Shift+</kbd> and <kbd>Alt+Shift+Down</k
 
 ### More add_next_\*
 
-```jquery
-{ "keys": ["alt+right"], "command": "add_next_character", "args": {"forward": true} },
-{ "keys": ["alt+left"], "command": "add_next_character", "args": {"forward": false} },
+```javascript
+{ "keys": [KEYBINDING], "command": "add_next_character", "args": {"forward": true} },
+{ "keys": [KEYBINDING], "command": "add_next_character", "args": {"forward": false} },
 
-{ "keys": ["alt+end"], "command": "add_end_of_line", "args": {"forward": true} },
-{ "keys": ["alt+home"], "command": "add_end_of_line", "args": {"forward": false} },
+{ "keys": [KEYBINDING], "command": "add_end_of_line", "args": {"forward": true} },
+{ "keys": [KEYBINDING], "command": "add_end_of_line", "args": {"forward": false} },
 
-{ "keys": ["ctrl+alt+right"], "command": "add_next_word", "args": {"forward": true} },
-{ "keys": ["ctrl+alt+left"], "command": "add_next_word", "args": {"forward": false} },
+{ "keys": [KEYBINDING], "command": "add_next_word", "args": {"forward": true} },
+{ "keys": [KEYBINDING], "command": "add_next_word", "args": {"forward": false} },
 ```
 
+Just some more `add_next`s. They're useful on occasion.
 
 
+### Remove blank lines
 
+```javascript
+{ "keys": [KEYBINDING], "command": "remove_blank_line_selections", "args": {"forward": false} },
+```
+
+Split all selections by blank lines, discarding all that are on blank lines. This is useful for filtering cursors as well as splitting regions because a cursor that is just a blank line will be removed entirely.
+
+This works well with add_next_line because in combination your selections won't often be troubled be blank lines.
+
+
+### MORE LATER
 
 
 ### Save and restore selections
 
-```jquery
+```javascript
 {
 	"keys": [KEYBINDING],
 	"command": "store_selections",
@@ -184,7 +196,7 @@ Many thanks to Colin T.A. Gray for the idea, strategy and original code.
 
 ### Better escape
 
-```jquery
+```javascript
 {
 	"keys": ["escape"],
 	"command": "choosy_selection_select",
@@ -249,7 +261,7 @@ Thanks to Nilium who posted the original version for run_multiple_commands on th
 
 #### A duplicate that selects the just-duplicated line if done on a line
 
-```jquery
+```javascript
 { "keys": [KEYBINDING], "command": "duplicate_line" },
 
 {
@@ -277,7 +289,7 @@ This duplicate makes there always a selection after its execution. This is usefu
 
 ### Aligning cursors
 
-```jquery
+```javascript
 { "keys": [KEYBINDING], "command": "align_cursor"},
 ```
 
