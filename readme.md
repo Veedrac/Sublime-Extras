@@ -1,6 +1,8 @@
 Sublime Text Extras
 ===================
 
+TODO: Properly attribute sources
+
 Interjection
 ------------
 
@@ -108,7 +110,7 @@ Sublime Extras comes with no shortcuts by default. Additionally the `.sublime-co
 
 ### Using Unicode autocomplete
 
-When first started with this extension Sublime Text will take a few seconds to generate a half-megabyte `.sublime/unicode cache.picke.gz` file. Afterwards unicode autocomplete should *just work*. If you have <kbd>Alt Gr</kbd> on your keyboard, on linux you should be able to do <kbd>Alt Gr+p</kbd> to write "þ". When a word starts with a non-ASCII character it will be autocompleted into Unicode, searching by name.
+When first started with this extension Sublime Text will take a few seconds to generate a half-megabyte `.sublime/unicode cache.picke.gz` file. Afterwards Unicode autocomplete should *just work*. If you have <kbd>Alt Gr</kbd> on your keyboard, on Linux you should be able to do <kbd>Alt Gr+p</kbd> to write "þ". When a word starts with a non-ASCII character it will be autocompleted into Unicode, searching by name.
 
 If you don't have <kbd>Alt Gr</kbd>, a `£`, `€` or `¬` may be relevant non-ASCII characters you do have.
 
@@ -125,7 +127,7 @@ in my `Preferences.sublime-settings`.
 
 This just happens. A boundary is created at the top and bottom that keeps some space clear for viewing.
 
-To customise the border's size, in your user Extras.sublime-settings add and configure:
+To customize the border's size, in your user Extras.sublime-settings add and configure:
 
 ```json
 // The size of the border cleared at the top and bottom
@@ -237,7 +239,7 @@ The first version is non-executing -- Python won't try and evaluate the selectio
 
 But it's cooler than that.
 
-Python's [formatting system](http://docs.python.org/3/library/string.html#format-string-syntax) is used so that `{}` is equivilant to `$` — only now it accepts [the whole formatting mini-language](http://docs.python.org/3/library/string.html#format-specification-mini-language)!
+Python's [formatting system](http://docs.python.org/3/library/string.html#format-string-syntax) is used so that `{}` is equivalent to `$` — only now it accepts [the whole formatting mini-language](http://docs.python.org/3/library/string.html#format-specification-mini-language)!
 
 This would mainly be useful for, say, [`{:02}` `{:02}` `{:02}` ...] → [`01` `02` `03` ...] in order to align `01` and `10` but it's as flexible as the mini-language gets.
 
@@ -297,10 +299,30 @@ And finally, everything withing the `functools`, `itertools`, math, `operator`, 
 },
 ```
 
-TODO:
-~~The "preset" section will eventually be customisable, so don't worry about that. The other customizations will be described when that is done.~~
-It's customisable right now. I just need to explain how.
+For `"args"` *all* commnds can take `"preset"`, `"id"`, `"icon"`, `"scope"` and `"flags"`. `store_selections` can also take a `doubleclick` parameter and `activate_selections` can take a `clear` parameter.
 
+`"preset"` is the name of a preset as defined by `Extras.sublime-settings`. They are defined by `"presets"`, a dictionary mapping names to sub-dictionaries. Those sub-dictionaries in turn define defaults for any or all of `"id"`, `"icon"`, `"scope"` and `"flags"`.
+
+`"id"` defines the key under which the selections are stored. You could have one set of keybindings with one `id` and another with another `id` and they could not affect each-other.
+
+`"icon"` defines an icon for the gutter on lines where selections are stored. This can be `"dot"`, `"circle"`, `"bookmark"` "or" `"cross"`, or `""` for blank. It may also be a full package relative path, such as `Packages/Theme - Default/dot.png`. A bad choice gives a block of noise as the icon, which may be useful on occasion.
+
+`"scope"` defines the color from the used theme. Some choices are `"comment"`, `"string"`, `"meta.separator"` and `"invalid"`. I do not believe there is any guarantee that these will work on any particular theme.
+
+`"flags"` is a dictionary whose keys are any of `"empty"`, `"show on minimap"`, `"empty as overwrite"`, `"fill"`, `"outline"`, `"solid underline"`, `"stippled underline"`, `"squiggly underline"`, `"persistent"` and `"hidden"`. It's values are booleans, and decide whether the chosen attribute is active. All have defaults.
+
+* `empty`: Draw empty regions with a vertical bar. By default, they aren't drawn at all.
+* `show on minimap`: Don't show the regions on the minimap.
+* `empty as overwrite`: Draw empty regions with a horizontal bar instead of a vertical one.
+* `fill`: Enable filling the regions, leaving only the outline.
+* `outline`: Enable drawing the outline of the regions.
+* `solid underline`: Draw a solid underline below the regions.
+* `stippled underline`: Draw a stippled underline below the regions.
+* `squiggly underline`: Draw a squiggly underline below the regions.
+* `persistent`: Save the regions in the session.
+* `hidden`: Don't draw the regions.
+
+---
 
 `store_selections` saves selections to storage. If "doubleclick" is True, it will activate selections if all current selections are in storage.
 
@@ -313,7 +335,7 @@ It's customisable right now. I just need to explain how.
 
 This is really useful when you want to have lots of selections at different places and none of the other methods can get you the right subset. Normally you'd be forced to use a mouse which can at times be very suboptimal. Now just use `store_selections`!
 
-`activate_selected_selections` is better than `activate_selections` so I advise not using the first — `activate_selected_selections` wil fall back on it cleanly. `activate_selected_selections` is mainly useful when you can use `[better_]find_all_under`, store all of those, select a region containing some of them and "pop" that region.
+`activate_selected_selections` is better than `activate_selections` so I advise not using the first — `activate_selected_selections` will fall back on it cleanly. `activate_selected_selections` is mainly useful when you can use `[better_]find_all_under`, store all of those, select a region containing some of them and "pop" that region.
 
 Many thanks to Colin T.A. Gray for the idea, strategy and original code.
 
@@ -324,7 +346,7 @@ Many thanks to Colin T.A. Gray for the idea, strategy and original code.
 { "keys": [KEYBINDING], "command": "align_cursor"},
 ```
 
-Align the cursors to the first cursor, using the characters in the selection if possible, otherwise using the characters on either side of the cursor. It counts how many orrurences of those chosen characters preceed and tries to make that equal for each selection.
+Align the cursors to the first cursor, using the characters in the selection if possible, otherwise using the characters on either side of the cursor. It counts how many occurrences of those chosen characters preceded and tries to make that equal for each selection.
 
 It will extend if any cursor is a selection, otherwise it will move.
 
@@ -369,7 +391,7 @@ Nice!
 
 This joins selections together. It will join within lines if within_lines is True (default) and there is at least one line with multiple selections.
 
-This will, therefore, turn [som`e` te`x`t] into [som`e tex`t]. The main uses for this involve creating selections with selection storage, alligning and restoring. In the example above with aligning cursors, if the selections had been saved beforehand and restored afterwards you'd have something like this:
+This will, therefore, turn [som`e` te`x`t] into [som`e tex`t]. The main uses for this involve creating selections with selection storage, aligning and restoring. In the example above with aligning cursors, if the selections had been saved beforehand and restored afterwards you'd have something like this:
 
 ```json
 { "keys": [▮"alt+2"▮],       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
@@ -437,14 +459,13 @@ If you used `combine_selections` each of `"alt+2"`, `"alt+shift+2"`, `"alt+3"` a
 },
 ```
 
-**You don't have to choose these keys; they were chosen to highlight the extras you would have to tack on if you do.** This uses the same backend as with saving and restoring selections.
+**You don't have to choose these keys; they were chosen to highlight the extras you would have to tack on if you do.** This uses the same back end as with saving and restoring selections.
 
 Now when you press <kbd>ESC</kbd> an "afterimage" will be left. Continuing to press <kbd>ESC</kbd> will cycle forward. At all times <kbd>Shift-ESC</kbd> is the inverse of <kbd>ESC</kbd>.
 
 This is really useful for escaping to the *last* selection (<kbd>Shift+ESC</kbd>), for example. It's just nice.
 
-TODO:
-As with storing and restoring selections manually the "preset" and other configurations aren't amazingly usable yet. That will be covered when the day comes.
+The `"args"` accept the same `"preset"`, `"id"`, `"icon"`, `"scope"` and `"flags"` as with saving and restoring selections.
 
 
 
@@ -476,7 +497,7 @@ Thanks to Nilium who posted the original version for run_multiple_commands on th
 
 Note that the two instances of `KEYBINDING` have to be the same, and should probably be that of your current duplication shortcut.
 
-This duplicate makes there always a selection after its execution. This is useful, for example, to duplicate a line, split into charcters, write "=" (and, *WHAM*, you have a header!).
+This duplicate makes there always a selection after its execution. This is useful, for example, to duplicate a line, split into characters, write "=" (and, *WHAM*, you have a header!).
 
 #### Larger jumps
 
