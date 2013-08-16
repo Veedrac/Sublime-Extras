@@ -76,7 +76,7 @@ This shows off the improved `add_next_line` handling, the `remove_blank_line_sel
 
 ---
 
-![Eval](http://i.imgur.com/ckm8l5o.png)
+![Eval](http://i.imgur.com/9LDt2yU.png)
 
 First you see how full non-trivial expressions can be evaluated and "print" can be used to output text. Then you see that evaluation can work with expressions as well, and on top of that the `$` symbol injects sequential numbers into the code.
 
