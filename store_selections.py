@@ -37,15 +37,8 @@ if you need to include the license above.
 
 import sublime, sublime_plugin
 
-from collections import ChainMap
+from collections import ChainMap, UserDict
 from itertools import chain
-
-DEFAULT_SETTINGS = 	{
-	"icon": "dot",
-	"scope": "meta.separator", # Defines colours
-	"flags": sublime.DRAW_EMPTY   | sublime.DRAW_SOLID_UNDERLINE |
-		 sublime.DRAW_NO_FILL | sublime.DRAW_NO_OUTLINE
-}
 
 flag_map = {
 	"empty": sublime.DRAW_EMPTY,
@@ -60,45 +53,22 @@ flag_map = {
 	"hidden": sublime.HIDDEN
 }
 
-default_flags = {
-	"empty": False,
-	"show on minimap": True,
-	"empty as overwrite": False,
-	"fill": True,
-	"outline": True,
-	"solid underline": False,
-	"stippled underline": False,
-	"squiggly underline": False,
-	"persistent": False,
-	"hidden": False
-}
+toggled_flags = {"show on minimap", "fill", "outline"}
 
-# Should be loaded from settings...
-presets = {
-	"": {},
+class Presets(UserDict):
+	"""Acts like a dictionary but dynamically loads from settings."""
+	def __init__(self, settings):
+		self._settings = settings
+		self._missing = {}
 
-	"selection storage": {
-		"id": "selection storage",
-		"icon": "dot",
-		"scope": "meta.separator",
-		"flags": {
-			"empty": True,
-			"solid underline": True,
-			"fill": False,
-			"outline": False
-		}
-	},
+	@property
+	def data(self):
+	    return self._settings.get("presets", {})
 
-	"choosy single selection": {
-		"id": "choosy single selection",
-		"icon": "",
-		"scope": "invalid", # Defines colours
-		"flags": {
-			"empty": True,
-			"fill": False
-		}
-	}
-}
+	def __missing__(self, item):
+		return self._missing
+
+presets = Presets(sublime.load_settings("Extras.sublime-settings"))
 
 
 def parse_flags(flags={}, preset="", **other) -> "int":
@@ -110,14 +80,15 @@ def parse_flags(flags={}, preset="", **other) -> "int":
 
 	orsum_flags = 0
 
-	for flag_name, active in ChainMap(flags, preset, default_flags).items():
+	for flag_name, active in ChainMap(flags, preset, dict.fromkeys(toggled_flags, True)).items():
 		flag_int = flag_map[flag_name]
 
-		# OK.. wut?
-		# Read: "activate" if the default is False,
-		# else it's an inversed flag and activation
-		# is actually removal of the flag integer
-		if active != default_flags[flag_name]:
+		# Activate if "activate", but if flag in toggled_flags
+		# then activate by doing the oposite to normal
+		#
+		# x ^ False == x
+		# x ^ True == not x
+		if active ^ (flag_name in toggled_flags):
 			# Add flag
 			# 0b10 | 0b01 == 0b11
 			orsum_flags |= flag_int

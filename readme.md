@@ -45,8 +45,6 @@ A truly awesome set of enhancements to your Sublime Text life!
 
 * Easily write any named Unicode character using Sublime Text's autocomplete
 
-+ _A tentative hope that this may one day be customizable._
-
 
 
 Pics or GTFO
@@ -116,7 +114,7 @@ If you don't have <kbd>Alt Gr</kbd>, a `£`, `€` or `¬` may be relevant non-A
 
 You will need to change your settings to be able to see autocompletes in plain text files; I use
 
-```javascript
+```json
 "auto_complete_selector": "text, source, meta.tag - punctuation.definition.tag.begin",
 ```
 
@@ -125,16 +123,30 @@ in my `Preferences.sublime-settings`.
 
 ### Using boundaries
 
-This just happens. A 10-line boundary is created.
+This just happens. A boundary is created at the top and bottom that keeps some space clear for viewing.
 
-As of now the only way to customize this is to change the line `border = view.line_height() * 10` in `screen_boundaries.py`. The `10` is the number of lines. Set to 0 for a "dirty" disabling.
+To customise the border's size, in your user Extras.sublime-settings add and configure:
 
-Customisation will happen. It's just not here yet.
+```json
+// The size of the border cleared at the top and bottom
+// of the screen; units are summed
+//
+// All of the units are optional — if not given they
+// default to 0
+//
+// Drop or leave empty to default to no border
+"border": {
+	"pixels": 0,
+	"ems": 0,
+	"lines": 10,
+	"viewports": 0
+},
+```
 
 
 ### Repeat macro
 
-```javascript
+```json
 { "keys": [KEYBINDING], "command": "repeat_macro" },
 ```
 
@@ -145,7 +157,7 @@ Thanks to Sivakumar Kailasam for the basis of this code. In fact there seems to 
 
 ### Better add_next_line
 
-```javascript
+```json
 { "keys": [KEYBINDING], "command": "add_next_line", "args": {"forward": false} },
 { "keys": [KEYBINDING], "command": "add_next_line", "args": {"forward": true} },
 ```
@@ -155,7 +167,7 @@ These would replace the default <kbd>Alt+Shift+</kbd> and <kbd>Alt+Shift+Down</k
 
 ### More add_next_\*
 
-```javascript
+```json
 { "keys": [KEYBINDING], "command": "add_next_character", "args": {"forward": true} },
 { "keys": [KEYBINDING], "command": "add_next_character", "args": {"forward": false} },
 
@@ -171,7 +183,7 @@ Just some more `add_next`s. They're useful on occasion.
 
 ### Remove blank lines
 
-```javascript
+```json
 { "keys": [KEYBINDING], "command": "remove_blank_line_selections", "args": {"forward": false} },
 ```
 
@@ -184,7 +196,7 @@ This is also useful, as expected, for selecting paragraphs.
 
 ### Keep or remove every nth selection
 
-```javascript
+```json
 { "keys": [KEYBINDING], "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
 { "keys": [KEYBINDING], "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
 
@@ -204,7 +216,7 @@ Although this seems esoteric, it's useful because you often get code of alternat
 
 ### Split selection into chars or words
 
-```javascript
+```json
 { "keys": [KEYBINDING], "command": "split_selection_into_words" },
 { "keys": [KEYBINDING], "command": "split_selection_into_chars" },
 ```
@@ -214,7 +226,7 @@ Select all of the characters or all of the words in the current selections. This
 
 ### Inline evaluation
 
-```javascript
+```json
 { "keys": [KEYBINDING], "command": "evaluate_selection", "args": { "execute": false } },
 { "keys": [KEYBINDING], "command": "evaluate_selection", "args": { "execute": true } },
 ```
@@ -259,7 +271,7 @@ And finally, everything withing the `functools`, `itertools`, math, `operator`, 
 
 ### Save and restore selections
 
-```javascript
+```json
 {
 	"keys": [KEYBINDING],
 	"command": "store_selections",
@@ -285,7 +297,10 @@ And finally, everything withing the `functools`, `itertools`, math, `operator`, 
 },
 ```
 
-The "preset" section will eventually be customisable, so don't worry about that. The other customizations will be described when that is done.
+TODO:
+~~The "preset" section will eventually be customisable, so don't worry about that. The other customizations will be described when that is done.~~
+It's customisable right now. I just need to explain how.
+
 
 `store_selections` saves selections to storage. If "doubleclick" is True, it will activate selections if all current selections are in storage.
 
@@ -305,7 +320,7 @@ Many thanks to Colin T.A. Gray for the idea, strategy and original code.
 
 ### Aligning cursors
 
-```javascript
+```json
 { "keys": [KEYBINDING], "command": "align_cursor"},
 ```
 
@@ -315,7 +330,7 @@ It will extend if any cursor is a selection, otherwise it will move.
 
 Say you're editing this file (`▮` represents cursor):
 
-```javascript
+```json
 { "keys": [▮"alt+2"],       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
 { "keys": [▮"alt+shift+2"], "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
 { "keys": [▮"alt+3"],       "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
@@ -325,7 +340,7 @@ Say you're editing this file (`▮` represents cursor):
 
 and you want to select the last "]" on all of the lines. Instead of cancelling the selection and creating a new one from `command` like you'd traditionally do, you can scroll to the "]" on the first line...
 
-```javascript
+```json
 { "keys": ["alt+2"▮],       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
 { "keys": ["alt+sh▮ift+2"], "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
 { "keys": ["alt+3"▮],       "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
@@ -335,7 +350,7 @@ and you want to select the last "]" on all of the lines. Instead of cancelling t
 
 and use `align_cursor`! It will see the `"]` around the cursor and align all selections to the fisrt occurance of that pair...
 
-```javascript
+```json
 { "keys": ["alt+2"▮],       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
 { "keys": ["alt+shift+2"▮], "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
 { "keys": ["alt+3"▮],       "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
@@ -348,7 +363,7 @@ Nice!
 
 ### Combine selections
 
-```javascript
+```json
 { "keys": ["alt+j"], "command": "combine_selections" },
 ```
 
@@ -356,7 +371,7 @@ This joins selections together. It will join within lines if within_lines is Tru
 
 This will, therefore, turn [som`e` te`x`t] into [som`e tex`t]. The main uses for this involve creating selections with selection storage, alligning and restoring. In the example above with aligning cursors, if the selections had been saved beforehand and restored afterwards you'd have something like this:
 
-```javascript
+```json
 { "keys": [▮"alt+2"▮],       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
 { "keys": [▮"alt+shift+2"▮], "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
 { "keys": [▮"alt+3"▮],       "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
@@ -369,7 +384,7 @@ If you used `combine_selections` each of `"alt+2"`, `"alt+shift+2"`, `"alt+3"` a
 
 ### Better escape
 
-```javascript
+```json
 {
 	"keys": ["escape"],
 	"command": "choosy_selection_select",
@@ -428,6 +443,7 @@ Now when you press <kbd>ESC</kbd> an "afterimage" will be left. Continuing to pr
 
 This is really useful for escaping to the *last* selection (<kbd>Shift+ESC</kbd>), for example. It's just nice.
 
+TODO:
 As with storing and restoring selections manually the "preset" and other configurations aren't amazingly usable yet. That will be covered when the day comes.
 
 
@@ -438,7 +454,7 @@ Thanks to Nilium who posted the original version for run_multiple_commands on th
 
 #### A duplicate that selects the just-duplicated line if done on a line
 
-```javascript
+```json
 { "keys": [KEYBINDING], "command": "duplicate_line" },
 
 {
@@ -464,7 +480,7 @@ This duplicate makes there always a selection after its execution. This is usefu
 
 #### Larger jumps
 
-```javascript
+```json
 {
 	"keys": [KEYBINDING],
 	"command": "run_multiple_commands",

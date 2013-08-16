@@ -1,0 +1,53 @@
+{
+	// Presets for selection storage and retreival,
+	// including choosy_single_selection
+	//
+	// The keys are names by which to refer to
+	// the presets, the values are dictionaries
+	"presets": {
+
+		// Useful for store_selections and co.
+		// Often a softer colour such as blue
+		// Doesn't distract eyes much, suitable
+		// for being in the background
+		"selection storage": {
+			"id": "selection storage",
+			"icon": "dot",
+			"scope": "meta.separator",
+			"flags": {
+				"empty": true,
+				"solid underline": true,
+				"fill": false,
+				"outline": false,
+			}
+		},
+
+		// Useful for choosy_single_selection
+		// Often a red "alert" colour
+		// Stands out more than "selection storage"
+		"choosy single selection": {
+			"id": "choosy single selection",
+			"icon": "",
+			"scope": "invalid",
+			"flags": {
+				"empty": true,
+				"fill": false,
+			}
+		}
+	},
+
+
+	// The size of the border cleared at the top and bottom
+	// of the screen; units are summed
+	//
+	// All of the units are optional — if not given they
+	// default to 0
+	//
+	// Drop or leave empty to default to no border
+	"border": {
+		"pixels": 0,
+		"ems": 0,
+		"lines": 10,
+		"viewports": 0
+	},
+}

@@ -10,6 +10,21 @@ as I have seen.
 import sublime, sublime_plugin
 
 
+def get_margin_size(view):
+	"""Get the size of the border from the settings file."""
+
+	partsizes = {
+		"pixels": 1,
+		"ems": view.em_width(),
+		"lines": view.line_height(),
+		"viewports": view.viewport_extent()[1],
+	}
+
+	border_parts = sublime.load_settings("Extras.sublime-settings").get("border", {})
+
+	return sum(number*partsizes[part] for part, number in border_parts.items())
+
+
 class ForceMargin(sublime_plugin.EventListener):
 	"""
 	Force there to be a margin at the bottom and top
@@ -30,13 +45,13 @@ class ForceMargin(sublime_plugin.EventListener):
 		cursor_x, cursor_y = view.text_to_layout(cursor.a)
 
 		# Amount of space to keep clear at top and bottom
-		border = view.line_height() * 10
+		border = get_margin_size(view)
 
 		# Viewport poisions
 		view_x, view_y = view.viewport_position()
 		view_w, view_h = view.viewport_extent()
 
-		if 2*border >= view_h:
+		if 2*border >= view_h - view.line_height():
 			view.show_at_center(cursor)
 			return
 
