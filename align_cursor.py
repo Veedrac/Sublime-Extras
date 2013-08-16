@@ -73,7 +73,7 @@ class AlignCursor(sublime_plugin.TextCommand):
 
 			try:
 				# Get "count-1"th item, defauling to last
-				[start] = positions[count:count-1] or positions[-1:]
+				[start] = positions[count-1:count] or positions[-1:]
 
 			except ValueError:
 				continue

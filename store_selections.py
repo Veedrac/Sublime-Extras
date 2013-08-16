@@ -63,7 +63,7 @@ class Presets(UserDict):
 
 	@property
 	def data(self):
-	    return self._settings.get("presets", {})
+		return self._settings.get("presets", {})
 
 	def __missing__(self, item):
 		return self._missing
