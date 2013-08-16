@@ -303,13 +303,6 @@ This is really useful when you want to have lots of selections at different plac
 Many thanks to Colin T.A. Gray for the idea, strategy and original code.
 
 
-
----
----
----
----
-
-
 ### Aligning cursors
 
 ```javascript
