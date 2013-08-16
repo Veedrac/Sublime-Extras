@@ -182,10 +182,6 @@ Although this seems esoteric, it's useful because you often get code of alternat
 Select all of the characters or all of the words in the current selections. This can be useful when you want to sort the selected words or replace every character in a selection with a single ([`hello`] → [`=====`]). It can also be quicker than trimming a selection by hand ([`, "hello"`] → [, "`hello`"]).
 
 
-
-
-
-
 ### Inline evaluation
 
 ```javascript
@@ -195,7 +191,46 @@ Select all of the characters or all of the words in the current selections. This
 
 The *bestest* evaluation-subtitution-autonumbering command **evah**.
 
-This deserves a lot more than a few lines so TODO.
+The first version is non-executing -- Python won't try and evaluate the selection. All `$`s in the text will be replaced by consecutive numbers, starting from 1. The value of a `$` increments once per *selection*, not per `$`, so [`$$` `$$`] formats to [`11` `22`].
+
+But it's cooler than that.
+
+Python's [formatting system](http://docs.python.org/3/library/string.html#format-string-syntax) is used so that `{}` is equivilant to `$` — only now it accepts [the whole formatting mini-language](http://docs.python.org/3/library/string.html#format-specification-mini-language)!
+
+This would mainly be useful for, say, [`{:02}` `{:02}` `{:02}` ...] → [`01` `02` `03` ...] in order to align `01` and `10` but it's as flexible as the mini-language gets.
+
+You can even do [`{:0{}}` `{:0{}}` `{:0{}}` `{:0{}}`] → [`1` `02` `003` `0004`]!
+
+
+**But we're not even at the evaluation step!**
+
+When evaluation is enabled the formatting as above is disabled in order to prevent interference.
+
+There's a simple rule for evaluation -- if you typed the same thing at the REPL (changing spacing so that the REPL doesn't get confused) the output will be the same.
+
+Thus:
+
+`for x in range(3): x`
+
+evaluates to
+
+`
+0
+1
+2
+`
+
+`print(10, 20)` goes to `10 20`. `123 + 4324 ** 2` goes to `18697099`.
+
+`$` are substituted too, so `print("my number is", $)` goes to `my number is 1`.
+
+And finally, everything withing the `functools`, `itertools`, math, `operator`, `os` and `random` modules are available unpacked, to `choice([1, 2, 3])` will evaluate to `1`, `2` or `3` depending on the mood of the gods.
+
+
+---
+---
+---
+---
 
 
 
