@@ -102,7 +102,7 @@ Some tips on getting set-up
 Sublime Extras comes with no shortcuts by default. Additionally the `.sublime-commands` file has yet to be developed.
 
 
-# Repeat macro
+### Repeat macro
 
 ```jquery
 { "keys": [KEYBINDING], "command": "repeat_macro" },
@@ -124,7 +124,7 @@ Thanks to Sivakumar Kailasam for the basis of this code. In fact there seems to 
 
 
 
-# Save and restore selections
+### Save and restore selections
 
 ```jquery
 {
@@ -163,7 +163,7 @@ The "preset" section will eventually be customisable, so don't worry about that.
 `clear_saved_selections` does what it says on the tin.
 
 
-# Better escape
+### Better escape
 
 ```jquery
 {
@@ -224,7 +224,7 @@ Now when you press <kbd>ESC</kbd> an "afterimage" will be left. Continuing to pr
 
 
 
-# Useful bonuses using run_multiple_commands
+### Useful bonuses using run_multiple_commands
 
 ## A duplicate that selects the just-duplicated line if done on a line
 
@@ -253,7 +253,7 @@ Note that the two instances of `KEYBINDING` have to be the same, and should prob
 
 
 
-# Aligning cursors
+### Aligning cursors
 
 ```jquery
 { "keys": [KEYBINDING], "command": "align_cursor"},
