@@ -313,33 +313,33 @@ Align the cursors to the first cursor, using the characters in the selection if 
 
 It will extend if any cursor is a selection, otherwise it will move.
 
-Say you're editing this file (` ̲` represents cursor in "insert mode"):
+Say you're editing this file (`▮` represents cursor):
 
 ```javascript
-{ "keys": ["̲alt+2"],       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
-{ "keys": ["̲alt+shift+2"], "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
-{ "keys": ["̲alt+3"],       "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
-{ "keys": ["̲alt+shift+3"], "command": "every_nth_selection", "args": {"n": 3, "filter": "remove" } },
+{ "keys": [▮"alt+2"],       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
+{ "keys": [▮"alt+shift+2"], "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
+{ "keys": [▮"alt+3"],       "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
+{ "keys": [▮"alt+shift+3"], "command": "every_nth_selection", "args": {"n": 3, "filter": "remove" } },
 ...
 ```
 
 and you want to select the last "]" on all of the lines. Instead of cancelling the selection and creating a new one from `command` like you'd traditionally do, you can scroll to the "]" on the first line...
 
 ```javascript
-{ "keys": ["alt+2"]̲,       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
-{ "keys": ["alt+shi̲ft+2"], "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
-{ "keys": ["alt+3"]̲,       "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
-{ "keys": ["alt+shi̲ft+3"], "command": "every_nth_selection", "args": {"n": 3, "filter": "remove" } },
+{ "keys": ["alt+2"▮],       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
+{ "keys": ["alt+sh▮ift+2"], "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
+{ "keys": ["alt+3"▮],       "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
+{ "keys": ["alt+sh▮ift+3"], "command": "every_nth_selection", "args": {"n": 3, "filter": "remove" } },
 ...
 ```
 
 and use `align_cursor`! It will see the `"]` around the cursor and align all selections to the fisrt occurance of that pair...
 
 ```javascript
-{ "keys": ["alt+2"]̲,       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
-{ "keys": ["alt+shift+2"]̲, "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
-{ "keys": ["alt+3"]̲,       "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
-{ "keys": ["alt+shift+3"]̲, "command": "every_nth_selection", "args": {"n": 3, "filter": "remove" } },
+{ "keys": ["alt+2"▮],       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
+{ "keys": ["alt+shift+2"▮], "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
+{ "keys": ["alt+3"▮],       "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
+{ "keys": ["alt+shift+3"▮], "command": "every_nth_selection", "args": {"n": 3, "filter": "remove" } },
 ...
 ```
 
@@ -357,10 +357,10 @@ This joins selections together. It will join within lines if within_lines is Tru
 This will, therefore, turn [som`e` te`x`t] into [som`e tex`t]. The main uses for this involve creating selections with selection storage, alligning and restoring. In the example above with aligning cursors, if the selections had been saved beforehand and restored afterwards you'd have something like this:
 
 ```javascript
-{ "keys": ["̲alt+2"]̲,       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
-{ "keys": ["̲alt+shift+2"]̲, "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
-{ "keys": ["̲alt+3"]̲,       "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
-{ "keys": ["̲alt+shift+3"]̲, "command": "every_nth_selection", "args": {"n": 3, "filter": "remove" } },
+{ "keys": [▮"alt+2"▮],       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
+{ "keys": [▮"alt+shift+2"▮], "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
+{ "keys": [▮"alt+3"▮],       "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
+{ "keys": [▮"alt+shift+3"▮], "command": "every_nth_selection", "args": {"n": 3, "filter": "remove" } },
 ...
 ```
 
