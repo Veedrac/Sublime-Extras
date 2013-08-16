@@ -108,7 +108,7 @@ Sublime Extras comes with no shortcuts by default. Additionally the `.sublime-co
 { "keys": [KEYBINDING], "command": "repeat_macro" },
 ```
 
-Run a macro many times. If you want to use a macro once per selection the normal command is sufficient. If you want to repeat, say, once per line, reduce to the above problem.
+Run a macro many times. If you want to use a macro once per selection the normal command is sufficient. If you want to repeat, say, once per line, reduce to the above problem. This comes in to play any time vim's quantifier would be useful, albeit this is clumsier. I'm still thinking of a good way to do that... maybe I'll check what Vintage does.
 
 Thanks to Sivakumar Kailasam for the basis of this code. In fact there seems to be no true advantage to my code except that it is simpler by removing some of the redundancy that the original had.
 
@@ -147,10 +147,63 @@ Just some more `add_next`s. They're useful on occasion.
 
 Split all selections by blank lines, discarding all that are on blank lines. This is useful for filtering cursors as well as splitting regions because a cursor that is just a blank line will be removed entirely.
 
-This works well with add_next_line because in combination your selections won't often be troubled be blank lines.
+This works well with add_next_line because in combination your selections won't often be troubled be blank lines (the lines in the gutter don't spawn more cursors and they can be removed at the end with a single `remove_blank_line_selections`).
+
+This is also useful, as expected, for selecting paragraphs.
 
 
-### MORE LATER
+### Keep or remove every nth selection
+
+```javascript
+{ "keys": [KEYBINDING], "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
+{ "keys": [KEYBINDING], "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
+
+{ "keys": [KEYBINDING], "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
+{ "keys": [KEYBINDING], "command": "every_nth_selection", "args": {"n": 3, "filter": "remove" } },
+
+{ "keys": [KEYBINDING], "command": "every_nth_selection", "args": {"n": 4, "filter": "keep"   } },
+{ "keys": [KEYBINDING], "command": "every_nth_selection", "args": {"n": 4, "filter": "remove" } },
+
+...
+```
+
+Keep or remove every nth selection. This has 0-based indexing, so the first selection will always be the "first of the nth". If there is only one selection, it is first split into lines.
+
+Although this seems esoteric, it's useful because you often get code of alternating patterns; select each line and run one of these commands. But I admit it's somewhat unusual.
+
+
+### Split selection into chars or words
+
+```javascript
+{ "keys": [KEYBINDING], "command": "split_selection_into_words" },
+{ "keys": [KEYBINDING], "command": "split_selection_into_chars" },
+```
+
+Select all of the characters or all of the words in the current selections. This can be useful when you want to sort the selected words or replace every character in a selection with a single ([`hello`] → [`=====`]). It can also be quicker than trimming a selection by hand ([`, "hello"`] → [, "`hello`"]).
+
+
+
+
+
+
+### Inline evaluation
+
+```javascript
+{ "keys": [KEYBINDING], "command": "evaluate_selection", "args": { "execute": false } },
+{ "keys": [KEYBINDING], "command": "evaluate_selection", "args": { "execute": true } },
+```
+
+The *bestest* evaluation-subtitution-autonumbering command **evah**.
+
+This deserves a lot more than a few lines so TODO.
+
+
+
+### Combine selections
+
+```javascript
+{ "keys": ["alt+j"], "command": "combine_selections" },
+```
 
 
 ### Save and restore selections
@@ -285,6 +338,31 @@ Note that the two instances of `KEYBINDING` have to be the same, and should prob
 
 This duplicate makes there always a selection after its execution. This is useful, for example, to duplicate a line, split into charcters, write "=" (and, *WHAM*, you have a header!).
 
+#### Larger jumps
+
+```javascript
+{
+	"keys": [KEYBINDING],
+	"command": "run_multiple_commands",
+	"args": { "command": { "command": "move", "args": {"by": "lines", "forward": false } }, "times": 8 },
+},
+{
+	"keys": [KEYBINDING],
+	"command": "run_multiple_commands",
+	"args": { "command": { "command": "move", "args": {"by": "lines", "forward": true  } }, "times": 8 },
+},
+{
+	"keys": [KEYBINDING],
+	"command": "run_multiple_commands",
+	"args": { "command": { "command": "move", "args": {"by": "lines", "forward": false, "extend": true} }, "times": 8 },
+},
+{
+	"keys": [KEYBINDING],
+	"command": "run_multiple_commands",
+	"args": { "command": { "command": "move", "args": {"by": "lines", "forward": true,  "extend": true} }, "times": 8 },
+},
+```
+These four commands let you jump up or down, the last two extending the selection, by 8 lines. This is a really nice way to travel as the jumps are small and controlled but much quicker than what you'd otherwise resort to.
 
 
 ### Aligning cursors
