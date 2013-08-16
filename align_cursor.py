@@ -11,8 +11,6 @@ class AlignCursor(sublime_plugin.TextCommand):
 	if possible, otherwise using the characters on either side of the cursor.
 
 	It will extend if any cursor is a selection, otherwise it will move.
-
-	If it cannot find a match, it will go to the line's end.
 	"""
 	def run(self, edit, extend=False):
 		selections = self.view.sel()

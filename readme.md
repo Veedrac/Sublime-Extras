@@ -45,50 +45,56 @@ A truly awesome set of enhancements to your Sublime Text life!
 
 * Easily write any named Unicode character using Sublime Text's autocomplete
 
-* + _A tentative hope that this may one day be customizable._
++ _A tentative hope that this may one day be customizable._
 
 
 
 Pics or GTFO
 ------------
 
-The following are **APNG**s; if you're using Chrome (or Opera) you'll need [an extension](https://chrome.google.com/webstore/detail/apng/ehkepjiconegkhpodgoaeamnpckdbblp), if you're using IE you need to stop it.
+#### The following are **APNG**s; if you're using Chrome (or Opera) you'll need [an extension](https://chrome.google.com/webstore/detail/apng/ehkepjiconegkhpodgoaeamnpckdbblp), if you're using IE you need to stop it.
 
-**[The "album" collects these all in one other place.](http://imgur.com/a/8NmF0)**
+*[The "album" collects these all in one other place.](http://imgur.com/a/9oCqY)*
 
 ---
 
-![Store, Align, Combine](http://i.imgur.com/UQ71ZET.png)
+![Autocomplete Unicode](http://i.imgur.com/BppUqdc.png)
+
+If you have <kbd>Alt Gr</kbd> on your keyboard, on linux you should be able to do <kbd>Alt Gr+p</kbd> to write "þ". When a word starts with a non-ASCII character it will be autocompleted into Unicode, searching by name. That's what's happening here.
+
+---
+
+![Store, Align, Combine](http://i.imgur.com/fuPyeG6.png)
 
 This first uses storing selections to "jump" the gap, and immediately follows with a store+align+restore+join idiom to extend the cursor. The cursors are then joined and the process starts again.
 
 ---
 
-![Selections](http://i.imgur.com/Hk3BLeA.png)
+![Selections](http://i.imgur.com/ckm8l5o.png)
 
 This shows off the improved `add_next_line` handling, the `remove_blank_line_selections` command, the `add_next_character` command and the red shows off choosing where "ESC" lands us.
 
 ---
 
-![Eval](http://i.imgur.com/yZduaRH.png)
+![Eval](http://i.imgur.com/ckm8l5o.png)
 
 First you see how full non-trivial expressions can be evaluated and "print" can be used to output text. Then you see that evaluation can work with expressions as well, and on top of that the `$` symbol injects sequential numbers into the code.
 
 ---
 
-![Repeat Macro](http://i.imgur.com/L64UVdG.png)
+![Repeat Macro](http://i.imgur.com/oaZjrs4.png)
 
 A macro is run... 32 times.
 
 ---
 
-![Boundaries](http://i.imgur.com/gRMnDmN.png)
+![Boundaries](http://i.imgur.com/gz2MkQQ.png)
 
 A border of 10 lines is forced above and below.
 
 ---
 
-![Split Selection](http://i.imgur.com/PAEbilM.png)
+![Split Selection](http://i.imgur.com/64ZI3RY.png)
 
 `run_multiple_commands` is used for the "blocky" selections and the rest is a combination of selection-altering commands.
 
@@ -100,6 +106,30 @@ Some tips on getting set-up
 ----------------------------
 
 Sublime Extras comes with no shortcuts by default. Additionally the `.sublime-commands` file has yet to be developed.
+
+
+### Using Unicode autocomplete
+
+When first started with this extension Sublime Text will take a few seconds to generate a half-megabyte `.sublime/unicode cache.picke.gz` file. Afterwards unicode autocomplete should *just work*. If you have <kbd>Alt Gr</kbd> on your keyboard, on linux you should be able to do <kbd>Alt Gr+p</kbd> to write "þ". When a word starts with a non-ASCII character it will be autocompleted into Unicode, searching by name.
+
+If you don't have <kbd>Alt Gr</kbd>, a `£`, `€` or `¬` may be relevant non-ASCII characters you do have.
+
+You will need to change your settings to be able to see autocompletes in plain text files; I use
+
+```javascript
+"auto_complete_selector": "text, source, meta.tag - punctuation.definition.tag.begin",
+```
+
+in my `Preferences.sublime-settings`.
+
+
+### Using boundaries
+
+This just happens. A 10-line boundary is created.
+
+As of now the only way to customize this is to change the line `border = view.line_height() * 10` in `screen_boundaries.py`. The `10` is the number of lines. Set to 0 for a "dirty" disabling.
+
+Customisation will happen. It's just not here yet.
 
 
 ### Repeat macro
@@ -199,7 +229,7 @@ Python's [formatting system](http://docs.python.org/3/library/string.html#format
 
 This would mainly be useful for, say, [`{:02}` `{:02}` `{:02}` ...] → [`01` `02` `03` ...] in order to align `01` and `10` but it's as flexible as the mini-language gets.
 
-You can even do [`{:0{}}` `{:0{}}` `{:0{}}` `{:0{}}`] → [`1` `02` `003` `0004`]!
+You can even do [`{:{}>{}}` `{:{}>{}}` `{:{}>{}}` `{:{}>{}}`] → [`1` `22` `333` `4444`]!
 
 
 **But we're not even at the evaluation step!**
@@ -225,20 +255,6 @@ evaluates to
 `$` are substituted too, so `print("my number is", $)` goes to `my number is 1`.
 
 And finally, everything withing the `functools`, `itertools`, math, `operator`, `os` and `random` modules are available unpacked, to `choice([1, 2, 3])` will evaluate to `1`, `2` or `3` depending on the mood of the gods.
-
-
----
----
----
----
-
-
-
-### Combine selections
-
-```javascript
-{ "keys": ["alt+j"], "command": "combine_selections" },
-```
 
 
 ### Save and restore selections
@@ -279,7 +295,83 @@ The "preset" section will eventually be customisable, so don't worry about that.
 
 `clear_saved_selections` does what it says on the tin.
 
+
+This is really useful when you want to have lots of selections at different places and none of the other methods can get you the right subset. Normally you'd be forced to use a mouse which can at times be very suboptimal. Now just use `store_selections`!
+
+`activate_selected_selections` is better than `activate_selections` so I advise not using the first — `activate_selected_selections` wil fall back on it cleanly. `activate_selected_selections` is mainly useful when you can use `[better_]find_all_under`, store all of those, select a region containing some of them and "pop" that region.
+
 Many thanks to Colin T.A. Gray for the idea, strategy and original code.
+
+
+
+---
+---
+---
+---
+
+
+### Aligning cursors
+
+```javascript
+{ "keys": [KEYBINDING], "command": "align_cursor"},
+```
+
+Align the cursors to the first cursor, using the characters in the selection if possible, otherwise using the characters on either side of the cursor. It counts how many orrurences of those chosen characters preceed and tries to make that equal for each selection.
+
+It will extend if any cursor is a selection, otherwise it will move.
+
+Say you're editing this file (⬮ represents cursor):
+
+```javascript
+{ "keys": [⬮"alt+2"],       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
+{ "keys": [⬮"alt+shift+2"], "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
+{ "keys": [⬮"alt+3"],       "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
+{ "keys": [⬮"alt+shift+3"], "command": "every_nth_selection", "args": {"n": 3, "filter": "remove" } },
+...
+```
+
+and you want to select the last "]" on all of the lines. Instead of cancelling the selection and creating a new one from `command` like you'd traditionally do, you can scroll to the "]" on the first line...
+
+```javascript
+{ "keys": ["alt+2"⬮],       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
+{ "keys": ["alt+sh⬮ift+2"], "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
+{ "keys": ["alt+3"⬮],       "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
+{ "keys": ["alt+sh⬮ift+3"], "command": "every_nth_selection", "args": {"n": 3, "filter": "remove" } },
+...
+```
+
+and use `align_cursor`! It will see the `"]` around the cursor and align all selections to the fisrt occurance of that pair...
+
+```javascript
+{ "keys": ["alt+2"⬮],       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
+{ "keys": ["alt+shift+2"⬮], "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
+{ "keys": ["alt+3"⬮],       "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
+{ "keys": ["alt+shift+3"⬮], "command": "every_nth_selection", "args": {"n": 3, "filter": "remove" } },
+...
+```
+
+Nice!
+
+
+### Combine selections
+
+```javascript
+{ "keys": ["alt+j"], "command": "combine_selections" },
+```
+
+This joins selections together. It will join within lines if within_lines is True (default) and there is at least one line with multiple selections.
+
+This will, therefore, turn [som`e` te`x`t] into [som`e tex`t]. The main uses for this involve creating selections with selection storage, alligning and restoring. In the example above with aligning cursors, if the selections had been saved beforehand and restored afterwards you'd have something like this:
+
+```javascript
+{ "keys": [⬮"alt+2"⬮],       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
+{ "keys": [⬮"alt+shift+2"⬮], "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
+{ "keys": [⬮"alt+3"⬮],       "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
+{ "keys": [⬮"alt+shift+3"⬮], "command": "every_nth_selection", "args": {"n": 3, "filter": "remove" } },
+...
+```
+
+If you used `combine_selections` each of `"alt+2"`, `"alt+shift+2"`, `"alt+3"` and `"alt+shift+3"` would be selected.
 
 
 ### Better escape
@@ -337,9 +429,13 @@ Many thanks to Colin T.A. Gray for the idea, strategy and original code.
 },
 ```
 
-You don't have to choose these keybindings. This uses the same backend as with saving and restoring selections.
+**You don't have to choose these keys; they were chosen to highlight the extras you would have to tack on if you do.** This uses the same backend as with saving and restoring selections.
 
 Now when you press <kbd>ESC</kbd> an "afterimage" will be left. Continuing to press <kbd>ESC</kbd> will cycle forward. At all times <kbd>Shift-ESC</kbd> is the inverse of <kbd>ESC</kbd>.
+
+This is really useful for escaping to the *last* selection (<kbd>Shift+ESC</kbd>), for example. It's just nice.
+
+As with storing and restoring selections manually the "preset" and other configurations aren't amazingly usable yet. That will be covered when the day comes.
 
 
 
@@ -398,16 +494,3 @@ This duplicate makes there always a selection after its execution. This is usefu
 },
 ```
 These four commands let you jump up or down, the last two extending the selection, by 8 lines. This is a really nice way to travel as the jumps are small and controlled but much quicker than what you'd otherwise resort to.
-
-
-### Aligning cursors
-
-```javascript
-{ "keys": [KEYBINDING], "command": "align_cursor"},
-```
-
-Align the cursors to the first cursor, using the characters in the selection if possible, otherwise using the characters on either side of the cursor.
-
-It will extend if any cursor is a selection, otherwise it will move.
-
-If it cannot find a match, it will go to the line's end.
