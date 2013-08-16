@@ -113,11 +113,28 @@ Run a macro many times. If you want to use a macro once per selection the normal
 Thanks to Sivakumar Kailasam for the basis of this code. In fact there seems to be no true advantage to my code except that it is simpler by removing some of the redundancy that the original had.
 
 
+### Better add_next_line
+
+```jquery
+{ "keys": [KEYBINDING], "command": "add_next_line", "args": {"forward": false} },
+{ "keys": [KEYBINDING], "command": "add_next_line", "args": {"forward": true} },
+```
+
+These would replace the default <kbd>Alt+Shift+</kbd> and <kbd>Alt+Shift+Down</kbd>. Instead of being truly awful, these work and they do so well. In essence, all they do is move the top or bottom row, avoiding cascades from cursors that fall into the gutter.
 
 
+### More add_next_\*
 
+```jquery
+{ "keys": ["alt+right"], "command": "add_next_character", "args": {"forward": true} },
+{ "keys": ["alt+left"], "command": "add_next_character", "args": {"forward": false} },
 
+{ "keys": ["alt+end"], "command": "add_end_of_line", "args": {"forward": true} },
+{ "keys": ["alt+home"], "command": "add_end_of_line", "args": {"forward": false} },
 
+{ "keys": ["ctrl+alt+right"], "command": "add_next_word", "args": {"forward": true} },
+{ "keys": ["ctrl+alt+left"], "command": "add_next_word", "args": {"forward": false} },
+```
 
 
 
@@ -161,6 +178,8 @@ The "preset" section will eventually be customisable, so don't worry about that.
 `activate_selected_selections` pops selections from storage if they are contained within a currently-active selection. If there are no contained selections and you have up to one cursor of size 0 this will fall back to activate_selections. It can take a "clear" argument for if you want to change whether to clear the storage, defaults to True.
 
 `clear_saved_selections` does what it says on the tin.
+
+Many thanks to Colin T.A. Gray for the idea, strategy and original code.
 
 
 ### Better escape
@@ -226,6 +245,8 @@ Now when you press <kbd>ESC</kbd> an "afterimage" will be left. Continuing to pr
 
 ### Useful bonuses using run_multiple_commands
 
+Thanks to Nilium who posted the original version for run_multiple_commands on the forums.
+
 #### A duplicate that selects the just-duplicated line if done on a line
 
 ```jquery
@@ -250,6 +271,7 @@ Now when you press <kbd>ESC</kbd> an "afterimage" will be left. Continuing to pr
 
 Note that the two instances of `KEYBINDING` have to be the same, and should probably be that of your current duplication shortcut.
 
+This duplicate makes there always a selection after its execution. This is useful, for example, to duplicate a line, split into charcters, write "=" (and, *WHAM*, you have a header!).
 
 
 
