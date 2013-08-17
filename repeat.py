@@ -47,7 +47,7 @@ class RepeatMacroCommand(sublime_plugin.TextCommand):
 		self.view.window().show_input_panel(
 			" № of repeats: ",
 			initial_text = "",
-			on_done   = repeat_macro,
+			on_done   = self.repeat_macro,
 			on_change = None,
 			on_cancel = None
 		)
