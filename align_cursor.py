@@ -1,5 +1,7 @@
 """
-All of this is mine. You can do what the hell you want with it.
+This is hereby released completely and irrevocably into the Public Domain.
+
+- Joshua Landau <joshua@landau.ws>
 """
 
 

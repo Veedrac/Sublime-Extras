@@ -1,3 +1,9 @@
+<!--
+This readme is hereby released completely and irrevocably into the Public Domain.
+
+- Joshua Landau <joshua@landau.ws>
+-->
+
 Sublime Text Extras
 ===================
 
@@ -123,6 +129,9 @@ You will need to change your settings to be able to see autocompletes in plain t
 in my `Preferences.sublime-settings`.
 
 
+The project that inspired this was (UnicodeMath)[https://github.com/mvoidex/UnicodeMath], an alternate TeX-like input mechanism.
+
+
 ### Using boundaries
 
 This just happens. A boundary is created at the top and bottom that keeps some space clear for viewing.
@@ -152,9 +161,9 @@ To customize the border's size, in your user Extras.sublime-settings add and con
 { "keys": [KEYBINDING], "command": "repeat_macro" },
 ```
 
-Run a macro many times. If you want to use a macro once per selection the normal command is sufficient. If you want to repeat, say, once per line, reduce to the above problem. This comes in to play any time vim's quantifier would be useful, albeit this is clumsier. I'm still thinking of a good way to do that... maybe I'll check what Vintage does.
+Run a macro many times. If you want to use a macro once per selection the normal command is sufficient. If you want to repeat, say, once per line, reduce to the above problem. This comes in to play any time vim's quantifier would be useful, albeit this is clumsier. I'm still thinking of a good way to do that... maybe I'll check what Vintage does and scrap this...
 
-Thanks to Sivakumar Kailasam for the basis of this code. In fact there seems to be no true advantage to my code except that it is simpler by removing some of the redundancy that the original had.
+Thanks to Sivakumar Kailasam for the [basis of this code](https://github.com/sivakumar-kailasam/Repeat-Macro). In fact my version's just a cropped version of his.
 
 
 ### Better add_next_line
@@ -165,6 +174,8 @@ Thanks to Sivakumar Kailasam for the basis of this code. In fact there seems to 
 ```
 
 These would replace the default <kbd>Alt+Shift+</kbd> and <kbd>Alt+Shift+Down</kbd>. Instead of being truly awful, these work and they do so well. In essence, all they do is move the top or bottom row, avoiding cascades from cursors that fall into the gutter.
+
+BetterFindAllUnder is an implementation of the same command from Sublime Selection Tools, https://github.com/simonrad/sublime-selection-tools. Thank you, Simonrad!
 
 
 ### More add_next_\*
@@ -270,6 +281,8 @@ evaluates to
 
 And finally, everything withing the `functools`, `itertools`, math, `operator`, `os` and `random` modules are available unpacked, to `choice([1, 2, 3])` will evaluate to `1`, `2` or `3` depending on the mood of the gods.
 
+This is basically a polished version of [MiniPy](https://github.com/vim/MiniPy). Thanks Vim (author's name on Github)!
+
 
 ### Save and restore selections
 
@@ -337,7 +350,7 @@ This is really useful when you want to have lots of selections at different plac
 
 `activate_selected_selections` is better than `activate_selections` so I advise not using the first — `activate_selected_selections` will fall back on it cleanly. `activate_selected_selections` is mainly useful when you can use `[better_]find_all_under`, store all of those, select a region containing some of them and "pop" that region.
 
-Many thanks to Colin T.A. Gray for the idea, strategy and original code.
+Derived from [Mark And Move](https://github.com/colinta/SublimeMarkAndMove). Many thanks to Colin T.A. Gray for the idea, strategy and original code!
 
 
 ### Aligning cursors
@@ -471,7 +484,7 @@ The `"args"` accept the same `"preset"`, `"id"`, `"icon"`, `"scope"` and `"flags
 
 ### Useful bonuses using run_multiple_commands
 
-Thanks to Nilium who posted the original version for run_multiple_commands on the forums.
+Thanks to Nilium who posted the original version for run_multiple_commands [on the forums](http://www.sublimetext.com/forum/viewtopic.php?t=8677)!
 
 #### A duplicate that selects the just-duplicated line if done on a line
 

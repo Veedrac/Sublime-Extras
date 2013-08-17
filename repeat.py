@@ -22,17 +22,16 @@ Officially based off of https://github.com/sivakumar-kailasam/Repeat-Macro with 
 	FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 	DEALINGS IN THE SOFTWARE.
 
-Because much of this is now mine and I claim no rights to this to the extent that I can,
-if you want to "steal" stuff you'll have to check against the original source to see
-if you need to include the license above.
+This is basically a "lite" version of that using the same code-base.
 
-That sounds really silly with the size of this plugin, but what can you expect with
-copyright law anyway?
+My changes are hereby released completely and irrevocably into the
+Public Domain. THE ORIGINAL CODE, THAT OF REPEAT-MACRO, IS NOT PUBLIC
+DOMAIN AND THUS THIS CODE SHOULD NOT BE THOUGHT OF AS PUBLIC DOMAIN.
+
+- Joshua Landau <joshua@landau.ws>
 """
 
 import sublime, sublime_plugin
-
-from functools import partial
 
 class RepeatMacroCommand(sublime_plugin.TextCommand):
 	"""
@@ -44,19 +43,15 @@ class RepeatMacroCommand(sublime_plugin.TextCommand):
 	If you want to repeat, say, once per line, reduce to the above problem.
 	"""
 
-	def run(self, edit, n=None):
-		if n is None:
-			self.view.window().show_input_panel(
-				" № of repeats: ",
-				initial_text = "",
-				on_done   = self.on_done,
-				on_change = None,
-				on_cancel = None
-			)
+	def run(self, edit):
+		self.view.window().show_input_panel(
+			" № of repeats: ",
+			initial_text = "",
+			on_done   = repeat_macro,
+			on_change = None,
+			on_cancel = None
+		)
 
-		else:
-			on_done(n)
-
-	def on_done(self, number):
-		for _ in range(int(number)):
+	def repeat_macro(self, input):
+		for _ in range(int(input)):
 			self.view.run_command("run_macro")

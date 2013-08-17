@@ -1,3 +1,9 @@
+/*
+This is hereby released completely and irrevocably into the Public Domain.
+
+- Joshua Landau <joshua@landau.ws>
+*/
+
 {
 	// Presets for selection storage and retreival,
 	// including choosy_single_selection

@@ -1,10 +1,12 @@
 """
 The method for writing this was inspired from writing store_selections,
 which has code based off of (and taken from) https://github.com/colinta/SublimeMarkAndMove,
-but the idea (and I think all the code) in this is mine. As such, you can do what the hell
-you want with it.
+but the idea (and I think all the code) in this is mine.
 
-store_selections has it's own license, so remember to look there.
+This is hereby released completely and irrevocably into the Public Domain.
+store_selections has it's own licensing, so remember to look there as well.
+
+- Joshua Landau <joshua@landau.ws>
 """
 
 

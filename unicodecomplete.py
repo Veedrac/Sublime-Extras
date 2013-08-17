@@ -1,19 +1,20 @@
 """
-This one is mine. You can do what the hell you want with it.
+When first started with this extension Sublime Text will take a few
+seconds to generate a half-megabyte ".sublime/unicode cache.picke.gz"
+file. Afterwards Unicode autocomplete should *just work*. If you have
+"Alt Gr" on your keyboard, on Linux you should be able to do "Alt Gr+p"
+to write "þ". When a word starts with a non-ASCII character it will be
+autocompleted into Unicode, searching by name.
 
-This needs to be polished before you can use it, btw. It also
-requres a generated file that, well, you don't have.
+If you don't have "Alt Gr", a "£", "€" or "¬" may be relevant
+non-ASCII characters you do have.
 
-The idea is more complicated than the others -- on my keyboard
-on my Linux installation, "ALT-GR" + most keys makes a Unicode
-symbol (such as þ, ø, ĸ and ł). This make a very clever auto-
-complete for words starting in any non-ASCII symbol, such as
-øinf (which can autocomplete to ∞, ℹ, ⧞, and many more). This
-is really useful for quick Unicode, and doesn't cause any
-slowdown except at load (about ¼𝗌) and when actually using it
-(mostly unnoticeable), AFAICT.
+The project that inspired this was UnicodeMath, an alternate
+TeX-like input mechanism. (https://github.com/mvoidex/UnicodeMath)
 
-I *will* clean up the code sometime. Just not right now.
+This is hereby released completely and irrevocably into the Public Domain.
+
+- Joshua Landau <joshua@landau.ws>
 """
 
 import sublime

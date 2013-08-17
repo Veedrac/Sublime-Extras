@@ -3,6 +3,12 @@ Based off of http://www.sublimetext.com/forum/viewtopic.php?t=8677,
 and I see no license there so AFAIK you need to ask there any time you
 even think about doing anything to this source. Or you can just duck
 and hope, like I have.
+
+My changes are hereby released completely and irrevocably into the
+Public Domain. THE ORIGINAL CODE MAY NOT BE PUBLIC DOMAIN AND THUS
+THIS CODE SHOULD NOT BE THOUGHT OF AS PUBLIC DOMAIN.
+
+- Joshua Landau <joshua@landau.ws>
 """
 
 import sublime, sublime_plugin

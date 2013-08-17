@@ -1,3 +1,9 @@
+"""
+This is hereby released completely and irrevocably into the Public Domain.
+
+- Joshua Landau <joshua@landau.ws>
+"""
+
 # Lots of data that shouldn't be in a program...
 # Skip ahead 150 lines to the actual program.
 extras = list(zip(

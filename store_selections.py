@@ -1,5 +1,5 @@
 """
-Based off of https://github.com/colinta/SublimeMarkAndMove, thus here is the license.
+Derived from https://github.com/colinta/SublimeMarkAndMove, thus here is the license.
 
 	Copyright (c) 2012, Colin T.A. Gray
 	All rights reserved.
@@ -29,9 +29,11 @@ Based off of https://github.com/colinta/SublimeMarkAndMove, thus here is the lic
 	either expressed or implied, of this project.
 
 
-Because much of this is now mine and I claim no rights to this to the extent that
-I can, if you want to "steal" stuff you'll have to check against the original source to see
-if you need to include the license above.
+My changes are hereby released completely and irrevocably into the Public
+Domain. THE ORIGINAL CODE, THAT OF SUBLIMEMARKANDMOVE, IS NOT PUBLIC DOMAIN
+AND THUS THIS CODE SHOULD NOT BE THOUGHT OF AS PUBLIC DOMAIN.
+
+- Joshua Landau <joshua@landau.ws>
 """
 
 

@@ -1,0 +1,78 @@
+[This is hereby released completely and irrevocably into the Public Domain.]
+
+
+
+On many of these codepieces, you will see:
+
+	This is hereby released completely and irrevocably into the Public Domain.
+
+
+This is a short way of saying:
+
+	This is free and unencumbered software released into the public domain.
+
+	Anyone is free to copy, modify, publish, use, compile, sell, or
+	distribute this software, either in source code form or as a compiled
+	binary, for any purpose, commercial or non-commercial, and by any
+	means.
+
+	In jurisdictions that recognize copyright laws, the author or authors
+	of this software dedicate any and all copyright interest in the
+	software to the public domain. We make this dedication for the benefit
+	of the public at large and to the detriment of our heirs and
+	successors. We intend this dedication to be an overt act of
+	relinquishment in perpetuity of all present and future rights to this
+	software under copyright law.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+	EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+	IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+	OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+	OTHER DEALINGS IN THE SOFTWARE.
+
+	For more information, please refer to <http://unlicense.org/>
+
+
+Yes, this means you are allowed to plagarise (although you shouldn't). You
+can not only sell this software but completely hide the fact it's public
+domain.
+
+You are allowed to put this in licenced code and you are allowed to produce
+licenced versions (even if identical in all other respects). Those obviously
+will not make all other unlicensed versions yours, though.
+
+
+
+You may also see versions of:
+
+	My changes are hereby released completely and irrevocably into the
+	Public Domain. THE ORIGINAL CODE MAY NOT BE PUBLIC DOMAIN AND THUS
+	THIS CODE SHOULD NOT BE THOUGHT OF AS PUBLIC DOMAIN.
+
+
+This happens when I want to release my changes to public domain but the
+original code is licenced. This means that all parts of the code that
+directly originate from the licenced code (basically anything they could
+claim is at least partly theirs) is still theirs. Everything that's
+purely an addition of mine – anything that's completely new – is not
+theirs and thus I am able to release to the public domain.
+
+Copyright does not only count by characters. If a line I wrote is a direct
+translation of some part of the original code it is still theirs. If I
+re-use a technique that is inventive enough for copyright to hold, it is
+still their technique. Do not jump to conclusions.
+
+
+
+If I have misunderstood anything about licences or public domain, feel free
+to contact me.
+
+If you are unhappy about the licencing terms of any of this, especially if
+you own some of the utilised code, feel free to raise a complaint. I'll try
+and see what I can do.
+
+
+
+- Joshua Landau <joshua@landau.ws>

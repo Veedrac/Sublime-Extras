@@ -1,8 +1,11 @@
 """
-BetterFindAllUnder was inspired by https://github.com/simonrad/sublime-selection-tools,
-but I didn't use any code from there so the licensing issues are void.
+BetterFindAllUnder is an implementation of the same command from
+Sublime Selection Tools, https://github.com/simonrad/sublime-selection-tools,
+but I didn't use any code from there so licensing issues are void.
 
-All of this is mine. You can do what the hell you want with it.
+This is hereby released completely and irrevocably into the Public Domain.
+
+- Joshua Landau <joshua@landau.ws>
 """
 
 import sublime, sublime_plugin
