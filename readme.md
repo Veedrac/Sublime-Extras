@@ -63,7 +63,7 @@ Make a `.sublime-menu` file so we can do this all point-and-click style.
 Pics or GTFO
 ------------
 
-#### The following are **APNG**s; if you're using Chrome (or Opera) you'll need [an extension](https://chrome.google.com/webstore/detail/apng/ehkepjiconegkhpodgoaeamnpckdbblp), if you're using IE you need to stop it.
+#### The following are **APNG**s; if you're using Chrome or Opera you'll need [an extension](https://chrome.google.com/webstore/detail/apng/ehkepjiconegkhpodgoaeamnpckdbblp), if you're using IE you need to stop it.
 
 *[The "album" collects these all in one other place.](http://imgur.com/a/9oCqY)*
 
