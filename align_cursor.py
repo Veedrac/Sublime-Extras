@@ -7,14 +7,14 @@ This is hereby released completely and irrevocably into the Public Domain.
 
 import sublime, sublime_plugin
 
-class AlignCursor(sublime_plugin.TextCommand):
+class AlignCursorsCommand(sublime_plugin.TextCommand):
 	"""
 	Align the cursors to the first cursor, using the characters in the selection
 	if possible, otherwise using the characters on either side of the cursor.
 
 	It will extend if any cursor is a selection, otherwise it will move.
 	"""
-	def run(self, edit, extend=False):
+	def run(self, edit):
 		selections = self.view.sel()
 
 		if not selections:
@@ -30,7 +30,7 @@ class AlignCursor(sublime_plugin.TextCommand):
 
 
 		# Get where each cursor aims to be
-		if first_selection and not extend:
+		if first_selection:
 			str_end = first_selection.end() - first_selection_line.begin()
 			target = self.view.substr(first_selection)
 
@@ -43,7 +43,6 @@ class AlignCursor(sublime_plugin.TextCommand):
 			side = "left" if first_selection.a > first_selection.b else "right"
 
 		else:
-
 			if column == 0:
 				target = first_selection_line_chars[:1]
 				side = "left"

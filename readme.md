@@ -7,8 +7,6 @@ This readme is hereby released completely and irrevocably into the Public Domain
 Sublime Text Extras
 ===================
 
-TODO: Properly attribute sources
-
 Interjection
 ------------
 
@@ -52,6 +50,13 @@ A truly awesome set of enhancements to your Sublime Text life!
 * Store and retrieve selections
 
 * Easily write any named Unicode character using Sublime Text's autocomplete
+
+* Get loads of commands missing from the command palette into the command palette
+
+
+#### TODO:
+
+Make a `.sublime-menu` file so we can do this all point-and-click style.
 
 
 

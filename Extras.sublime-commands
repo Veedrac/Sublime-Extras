@@ -4,30 +4,205 @@ This is hereby released completely and irrevocably into the Public Domain.
 - Joshua Landau <joshua@landau.ws>
 */
 
-// Commented out because I need motivation to add all of the commands,
-// rather than just four.
-
 [
-//	{
-//		"caption": "Repeat Macro",
-//		"command": "repeat_macro"
-//	},
-//	{
-//		"caption": "Split Selection into Characters",
-//		"command": "split_selection_into_chars"
-//	},
-//	{
-//		"caption": "Split Selection into Words",
-//		"command": "split_selection_into_words"
-//	},
-//	{
-//		"caption": "Substitute in Selection",
-//		"command": "evaluate_selection",
-//		"args": { "execute": false }
-//	},
-//	{
-//		"caption": "Evaluate Selections",
-//		"command": "evaluate_selection",
-//		"args": { "execute": true }
-//	},
+	{
+		"caption": "Find All Under",
+		"command": "better_find_all_under",
+	},
+	{
+		"caption": "Align Cursors",
+		"command": "align_cursors",
+	},
+	{
+		"caption": "Substitute in Selection",
+		"command": "evaluate_selection",
+		"args": { "execute": false }
+	},
+	{
+		"caption": "Execute, Evaluate Selections",
+		"command": "evaluate_selection",
+		"args": { "execute": true }
+	},
+	{
+		"caption": "Repeat Macro",
+		"command": "repeat_macro"
+	},
+	{
+		"caption": "Split Selection into Characters",
+		"command": "split_selection_into_chars"
+	},
+	{
+		"caption": "Split Selection into Words",
+		"command": "split_selection_into_words"
+	},
+	{
+		"caption": "Remove Blank Lines in Selections",
+		"command": "remove_blank_line_selections",
+	},
+	{
+		"caption": "Store Selections",
+		"command": "store_selections",
+		"args": { "preset": "selection storage", "doubleclick": true }
+	},
+	{
+		"caption": "Activate and Clear Selections",
+		"command": "activate_selections",
+		"args": { "preset": "selection storage", "clear": true }
+	},
+	{
+		"caption": "Activate and Keep Selections",
+		"command": "activate_selections",
+		"args": { "preset": "selection storage", "clear": false }
+	},
+	{
+		"caption": "Activate Selected Selections",
+		"command": "activate_selected_selections",
+		"args": { "preset": "selection storage" }
+	},
+	{
+		"caption": "Clear Saved Selections",
+		"command": "clear_saved_selections",
+		"args": { "preset": "selection storage" }
+	},
+
+	{ "caption": "Remove every 2nd selection", "command": "every_nth_selection", "args": {"n": 2, "filter": "remove" } },
+	{ "caption": "Remove every 3rd selection", "command": "every_nth_selection", "args": {"n": 3, "filter": "remove" } },
+	{ "caption": "Remove every 4th selection", "command": "every_nth_selection", "args": {"n": 4, "filter": "remove" } },
+	{ "caption": "Remove every 5th selection", "command": "every_nth_selection", "args": {"n": 5, "filter": "remove" } },
+	{ "caption": "Remove every 6th selection", "command": "every_nth_selection", "args": {"n": 6, "filter": "remove" } },
+	{ "caption": "Remove every 7th selection", "command": "every_nth_selection", "args": {"n": 7, "filter": "remove" } },
+	{ "caption": "Remove every 8th selection", "command": "every_nth_selection", "args": {"n": 8, "filter": "remove" } },
+	{ "caption": "Remove every 9th selection", "command": "every_nth_selection", "args": {"n": 9, "filter": "remove" } },
+
+	{ "caption": "Keep only every 2nd selection", "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
+	{ "caption": "Keep only every 3rd selection", "command": "every_nth_selection", "args": {"n": 3, "filter": "keep"   } },
+	{ "caption": "Keep only every 4th selection", "command": "every_nth_selection", "args": {"n": 4, "filter": "keep"   } },
+	{ "caption": "Keep only every 5th selection", "command": "every_nth_selection", "args": {"n": 5, "filter": "keep"   } },
+	{ "caption": "Keep only every 6th selection", "command": "every_nth_selection", "args": {"n": 6, "filter": "keep"   } },
+	{ "caption": "Keep only every 7th selection", "command": "every_nth_selection", "args": {"n": 7, "filter": "keep"   } },
+	{ "caption": "Keep only every 8th selection", "command": "every_nth_selection", "args": {"n": 8, "filter": "keep"   } },
+	{ "caption": "Keep only every 9th selection", "command": "every_nth_selection", "args": {"n": 9, "filter": "keep"   } },
+
+
+
+	// EXTRAS:
+	// Commands not included by default that should be
+
+	{
+		"caption": "Split Selection into Lines",
+		"command": "split_selection_into_lines"
+	},
+	{
+		"caption": "Quit, Exit, Close All",
+		"command": "exit",
+	},
+	{
+		"caption": "New Window",
+		"command": "new_window",
+	},
+	{
+		"caption": "Close Window",
+		"command": "close_window",
+	},
+	{
+		"caption": "Open File",
+		"command": "prompt_open_file",
+	},
+	{
+		"caption": "Reopen Last File",
+		"command": "reopen_last_file",
+	},
+	{
+		"caption": "New File",
+		"command": "new_file",
+	},
+	{
+		"caption": "Save",
+		"command": "save",
+	},
+	{
+		"caption": "Save As",
+		"command": "prompt_save_as",
+	},
+	{
+		"caption": "Close File",
+		"command": "close_file",
+	},
+	{
+		"caption": "Close",
+		"command": "close",
+	},
+	{
+		"caption": "Toggle Full Screen",
+		"command": "toggle_full_screen",
+	},
+	{
+		"caption": "Toggle Distraction Free",
+		"command": "toggle_distraction_free",
+	},
+	{
+		"caption": "Paste Primary (Last Selected Text)",
+		"command": "paste",
+		"args": {"clipboard": "selection"},
+	},
+	{
+		"caption": "Paste from History",
+		"command": "paste_from_history",
+	},
+	{
+		"caption": "Toggle Record Macro",
+		"command": "toggle_record_macro",
+	},
+	{
+		"caption": "Run Macro",
+		"command": "run_macro",
+	},
+	{
+		"caption": "Toggle Spell Check",
+		"command": "toggle_setting",
+		"args": {"setting": "spell_check"},
+	},
+	{
+		"caption": "Join Lines",
+		"command": "join_lines",
+	},
+	{
+		"caption": "Duplicate",
+		"command": "duplicate_line",
+	},
+	{
+		"caption": "Toggle Sublime Text Console",
+		"command": "show_panel",
+		"args": {"panel": "console", "toggle": true},
+	},
+	{
+		"caption": "Transpose",
+		"command": "transpose",
+	},
+	{
+		"caption": "Wrap Lines",
+		"command": "wrap_lines",
+	},
+	{
+		"caption": "Show at Center",
+		"command": "show_at_center",
+	},
+	{
+		"caption": "Fold",
+		"command": "fold",
+	},
+	{
+		"caption": "Unfold",
+		"command": "unfold",
+	},
+
+	{ "caption": "Fold to Level 1", "command": "fold_by_level", "args": {"level": 1} },
+	{ "caption": "Fold to Level 2", "command": "fold_by_level", "args": {"level": 2} },
+	{ "caption": "Fold to Level 3", "command": "fold_by_level", "args": {"level": 3} },
+	{ "caption": "Fold to Level 4", "command": "fold_by_level", "args": {"level": 4} },
+	{ "caption": "Fold to Level 5", "command": "fold_by_level", "args": {"level": 5} },
+	{ "caption": "Fold to Level 6", "command": "fold_by_level", "args": {"level": 6} },
+	{ "caption": "Fold to Level 7", "command": "fold_by_level", "args": {"level": 7} },
+	{ "caption": "Fold to Level 8", "command": "fold_by_level", "args": {"level": 8} },
+	{ "caption": "Fold to Level 9", "command": "fold_by_level", "args": {"level": 9} },
 ]

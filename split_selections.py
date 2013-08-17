@@ -54,7 +54,7 @@ class RemoveBlankLineSelectionsCommand(sublime_plugin.TextCommand):
 
 	This is useful for filtering cursors as well as splitting regions.
 	"""
-	def run(self, edit, forward):
+	def run(self, edit):
 		[*old_selections] = selections = self.view.sel()
 
 		selections.clear()
@@ -120,7 +120,7 @@ class EveryNthSelectionCommand(sublime_plugin.TextCommand):
 
 
 
-class CombineSelections(sublime_plugin.TextCommand):
+class CombineSelectionsCommand(sublime_plugin.TextCommand):
 	"""
 	Join selections together. Will join within lines
 	if within_lines is True (default) and there is

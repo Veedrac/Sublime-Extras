@@ -160,7 +160,7 @@ class AddNextLineCommand(sublime_plugin.TextCommand):
 			selections.add(sublime.Region(new, new, target_xpos))
 
 
-class BetterFindAllUnder(sublime_plugin.TextCommand):
+class BetterFindAllUnderCommand(sublime_plugin.TextCommand):
 	"""
 	Works like find_all_under, except works with initial
 	multiple cursors.
