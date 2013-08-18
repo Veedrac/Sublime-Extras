@@ -59,18 +59,17 @@ toggled_flags = {"show on minimap", "fill", "outline"}
 
 class Presets(UserDict):
 	"""Acts like a dictionary but dynamically loads from settings."""
-	def __init__(self, settings):
-		self._settings = settings
+	def __init__(self):
 		self._missing = {}
 
 	@property
 	def data(self):
-		return self._settings.get("presets", {})
+		return sublime.load_settings("Extras.sublime-settings").get("presets", {})
 
 	def __missing__(self, item):
 		return self._missing
 
-presets = Presets(sublime.load_settings("Extras.sublime-settings"))
+presets = Presets()
 
 
 def parse_flags(flags={}, preset="", **other) -> "int":
