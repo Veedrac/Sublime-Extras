@@ -1,3 +1,9 @@
+<!--
+This readme is hereby released completely and irrevocably into the Public Domain.
+
+- Joshua Landau <joshua@landau.ws>
+-->
+
 Sublime Text Extras
 ===================
 
@@ -64,7 +70,7 @@ Pics or GTFO
 
 ![Autocomplete Unicode](http://i.imgur.com/BppUqdc.png)
 
-If you have Alt Gr on your keyboard, on linux you should be able to do Alt Gr+p to write "þ". When a word starts with a non-ASCII character it will be autocompleted into Unicode, searching by name. That's what's happening here.
+If you have <kbd>Alt Gr</kbd> on your keyboard, on linux you should be able to do <kbd>Alt Gr+p</kbd> to write "þ". When a word starts with a non-ASCII character it will be autocompleted into Unicode, searching by name. That's what's happening here.
 
 ---
 
@@ -114,9 +120,9 @@ Sublime Extras comes with no shortcuts by default. Additionally the `.sublime-co
 
 ### Using Unicode autocomplete
 
-When first started with this extension Sublime Text will take a few seconds to generate a half-megabyte `.sublime/unicode cache.picke.gz` file. Afterwards Unicode autocomplete should *just work*. If you have Alt Gr on your keyboard, on Linux you should be able to do Alt Gr+p to write "þ". When a word starts with a non-ASCII character it will be autocompleted into Unicode, searching by name.
+When first started with this extension Sublime Text will take a few seconds to generate a half-megabyte `.sublime/unicode cache.picke.gz` file. Afterwards Unicode autocomplete should *just work*. If you have <kbd>Alt Gr</kbd> on your keyboard, on Linux you should be able to do <kbd>Alt Gr+p</kbd> to write "þ". When a word starts with a non-ASCII character it will be autocompleted into Unicode, searching by name.
 
-If you don't have Alt Gr, a `£`, `€` or `¬` may be relevant non-ASCII characters you do have.
+If you don't have <kbd>Alt Gr</kbd>, a `£`, `€` or `¬` may be relevant non-ASCII characters you do have.
 
 You will need to change your settings to be able to see autocompletes in plain text files; I use
 
@@ -171,7 +177,7 @@ Thanks to Sivakumar Kailasam for the [basis of this code](https://github.com/siv
 { "keys": [KEYBINDING], "command": "add_next_line", "args": {"forward": true} },
 ```
 
-These would replace the default Alt+Shift+ and Alt+Shift+Down. Instead of being truly awful, these work and they do so well. In essence, all they do is move the top or bottom row, avoiding cascades from cursors that fall into the gutter.
+These would replace the default <kbd>Alt+Shift+</kbd> and <kbd>Alt+Shift+Down</kbd>. Instead of being truly awful, these work and they do so well. In essence, all they do is move the top or bottom row, avoiding cascades from cursors that fall into the gutter.
 
 BetterFindAllUnder is an implementation of the same command from Sublime Selection Tools, https://github.com/simonrad/sublime-selection-tools. Thank you, Simonrad!
 
@@ -472,9 +478,9 @@ If you used `combine_selections` each of `"alt+2"`, `"alt+shift+2"`, `"alt+3"` a
 
 **You don't have to choose these keys; they were chosen to highlight the extras you would have to tack on if you do.** This uses the same back end as with saving and restoring selections.
 
-Now when you press ESC an "afterimage" will be left. Continuing to press ESC will cycle forward. At all times Shift-ESC is the inverse of ESC.
+Now when you press <kbd>ESC</kbd> an "afterimage" will be left. Continuing to press <kbd>ESC</kbd> will cycle forward. At all times <kbd>Shift-ESC</kbd> is the inverse of <kbd>ESC</kbd>.
 
-This is really useful for escaping to the *last* selection (Shift+ESC), for example. It's just nice.
+This is really useful for escaping to the *last* selection (<kbd>Shift+ESC</kbd>), for example. It's just nice.
 
 The `"args"` accept the same `"preset"`, `"id"`, `"icon"`, `"scope"` and `"flags"` as with saving and restoring selections.
 
