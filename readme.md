@@ -1,9 +1,3 @@
-<!--
-This readme is hereby released completely and irrevocably into the Public Domain.
-
-- Joshua Landau <joshua@landau.ws>
--->
-
 Sublime Text Extras
 ===================
 
@@ -52,7 +46,6 @@ A truly awesome set of enhancements to your Sublime Text life!
 * Easily write any named Unicode character using Sublime Text's autocomplete
 
 * Get loads of commands missing from the command palette into the command palette
-
 
 #### TODO:
 
