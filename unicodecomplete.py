@@ -17,8 +17,7 @@ This is hereby released completely and irrevocably into the Public Domain.
 - Joshua Landau <joshua@landau.ws>
 """
 
-import sublime
-import sublime_plugin
+import sublime, sublime_plugin
 
 import pickle
 import gzip

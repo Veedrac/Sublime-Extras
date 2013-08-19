@@ -360,7 +360,7 @@ Derived from [Mark And Move](https://github.com/colinta/SublimeMarkAndMove). Man
 ### Aligning cursors
 
 ```json
-{ "keys": [KEYBINDING], "command": "align_cursor"},
+{ "keys": [KEYBINDING], "command": "align_cursors"},
 ```
 
 Align the cursors to the first cursor, using the characters in the selection if possible, otherwise using the characters on either side of the cursor. It counts how many occurrences of those chosen characters preceded and tries to make that equal for each selection.
@@ -387,7 +387,7 @@ and you want to select the last "]" on all of the lines. Instead of cancelling t
 ...
 ```
 
-and use `align_cursor`! It will see the `"]` around the cursor and align all selections to the fisrt occurance of that pair...
+and use `align_cursors`! It will see the `"]` around the cursor and align all selections to the fisrt occurance of that pair...
 
 ```json
 { "keys": ["alt+2"▮],       "command": "every_nth_selection", "args": {"n": 2, "filter": "keep"   } },
