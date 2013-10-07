@@ -132,8 +132,11 @@ def store_selections(view, selections, replace=False, **settings):
 		filtered["icon"] = settings["icon"]
 
 	# Done! Finish up!
-
-	view.add_regions(id, selections, **filtered)
+	#
+	# Wrap the call in a timeout to appease adzenith who was kind enough
+	# to open my first bug report at github.com/Veedrac/Sublime-Extras/issues/1.
+	# This should make sure that you can switch panes with the mouse.
+	sublime.set_timeout(lambda: view.add_regions(id, selections, **filtered), 0)
 
 class StoreSelectionsCommand(sublime_plugin.TextCommand):
 	"""
