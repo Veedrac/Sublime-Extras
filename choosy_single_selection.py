@@ -34,6 +34,7 @@ class ChoosySingleSelectionCommand(sublime_plugin.TextCommand):
 		store_selections(self.view, old_selections, **settings)
 		selections.clear()
 
+		self.view.show(old_selections[index])
 		selections.add(old_selections[index])
 
 
@@ -63,6 +64,7 @@ class ChoosySelectionSelectCommand(sublime_plugin.TextCommand):
 		index %= len(stored_selections)
 
 		# Add back in new position
+		self.view.show(stored_selections[index])
 		selections.add(stored_selections[index])
 
 class KeepStoredSelectionsClear(sublime_plugin.EventListener):
