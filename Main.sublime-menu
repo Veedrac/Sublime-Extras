@@ -1,0 +1,24 @@
+[
+    {
+        "id": "preferences",
+        "children":
+        [{
+            "id": "package-settings",
+            "children":
+            [{
+                "caption": "Sublime Text Extras",
+                "children":
+                [{
+                    "caption": "Settings – Default",
+                    "args": { "file": "${packages}/Sublime-Extras/Extras.sublime-settings" },
+                    "command": "open_file"
+                },
+                {
+                    "caption": "Settings – User",
+                    "args": { "file": "${packages}/User/Extras.sublime-settings" },
+                    "command": "open_file"
+                }]
+            }]
+        }]
+    }
+]
