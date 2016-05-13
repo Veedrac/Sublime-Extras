@@ -78,7 +78,6 @@ class UnicodeMathComplete(sublime_plugin.EventListener):
 
 		if len(word) <= 1:
 			return None
-		print(unicode_names)
 		completions = [make_completion(completion, prefix) for completion in unicode_names.get(word[:2].upper(), [])]
 
 		completions.extend(make_completion(completion, prefix, character) for character, completion in unicode_extras[word[:2].upper()])
